@@ -1,0 +1,129 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #9face6);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.container {
+    background-color: #ffffffcc;
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 30px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+
+input[type="text"],
+input[type="date"] {
+    padding: 14px 16px;
+    margin-bottom: 15px;
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #6a82fb;
+    box-shadow: 0 0 8px #6a82fb80;
+}
+
+
+button {
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+#lista-de-tarefas {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#lista-de-tarefas div {
+    background-color: #ffffff;
+    border-left: 6px solid #6a82fb;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#lista-de-tarefas div span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+}
+
+
+#lista-de-tarefas button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#lista-de-tarefas button:hover {
+    background-color: #d9363e;
+    transform: scale(1.05);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

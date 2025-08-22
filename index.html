@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda</title>
+    <link rel="stylesheet" href="style.css">
+  
+
 </head>
 <body>
+    <h1>Little Schedule</h1>
     <input id="tarefas" type="text" placeholder="insira aqui sua tarefa" />
  
     <input id="selecionar-data" type="date" />
     <button onclick="adicionarTarefa()">adicionar tarefa</button>
     <div id="lista-de-tarefas"></div>
     <script>
-        ///seção de modelagem   
+        
         let afazeres;
         const afazeresSalvos = JSON.parse(localStorage.getItem("afazeres"))
         if(Array.isArray(afazeresSalvos)){
@@ -49,6 +53,7 @@
         let adicionarTarefa = () => {
             const campoTarefa = document.getElementById("tarefas");
             const tarefa = campoTarefa.value;
+            
  
             const campoData = document.getElementById("selecionar-data");
             const prazo = campoData.value;
@@ -84,7 +89,15 @@
             afazeres.forEach(
             (tarefa) => {
                 const elemento = document.createElement("div");
-                elemento.innerHTML = tarefa.nome + " " + tarefa.data;
+                elemento.innerHTML = tarefa.nome + " " + tarefa.data
+                const dataObj = new Date(tarefa.data);
+                const dia = String(dataObj.getDate()).padStart(2, '0');
+                const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
+                const ano = dataObj.getFullYear();
+                const dataFormatada = `${dia}/${mes}/${ano}`;
+
+elemento.innerHTML = tarefa.nome + " - " + dataFormatada;
+
  
                 const botaoApagar = document.createElement("button");
                 botaoApagar.innerText = " Apagar ";
